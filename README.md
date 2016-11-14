@@ -32,9 +32,11 @@ This project will be created with:
 
 **Day 1**: Create D3.js environment and learn to place objects on the SVG object.
 
-**Day 2**: Learn transitional manipulation in D3 and implement it to create wheel rotation. Add user controls for interactivity
+**Day 2**: Learn transitional manipulation in D3 and implement it to create wheel rotation
 
-**Day 3**: Add color schemes for user to interact with. Add additional styling for a professional look
+**Day 3**: Add user controls for interactivity and default color scheme. Setup configuration for accepting multiple themes.
+
+**Day 4**: Add color schemes for user to interact with. Add additional styling for a professional look
 
 
 ## Bonus Features
