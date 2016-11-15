@@ -1,8 +1,12 @@
 body {
   background-color: grey;
+  margin: 0;
 }
 
+svg {
+  background-color: black;
+}
 
 circle {
-  fill: cyan;
+  /*fill: cyan;*/
 }
