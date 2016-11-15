@@ -30,13 +30,27 @@ This project will be created with:
 
 ## Implementation Timeline
 
-**Day 1**: Create D3.js environment and learn to place objects on the SVG object.
+**Day 1**: Create D3.js environment and learn to place objects on the SVG object. Goals for the day:
 
-**Day 2**: Learn transitional manipulation in D3 and implement it to create wheel rotation
+- Render SVG Object to screen
+- Place a line of 12 dots on the screen
 
-**Day 3**: Add user controls for interactivity and default color scheme. Setup configuration for accepting multiple themes.
 
-**Day 4**: Add color schemes for user to interact with. Add additional styling for a professional look
+**Day 2**: Learn transitional manipulation in D3 and implement it to create wheel rotation. Goals for the day:
+
+- Space dots out in a circle, each separated by 30 degrees
+- Apply D3.transition to all dots and rotate them by an arbitrary number
+
+**Day 3**: Add user controls for interactivity and basic color scheme Goals for the day:
+
+- Place speed and rotation sliders on the SVG object
+- Connect sliders to inputs in D3
+- Buttons for changing color scheme
+
+**Day 4**: Setup configuration for accepting multiple themes for users to interact with. Add additional styling for a professional look. Goals for the day:
+
+- Three color schemes
+- Sliders and buttons styling
 
 
 ## Bonus Features
