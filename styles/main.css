@@ -3,10 +3,13 @@ body {
   margin: 0;
 }
 
-svg {
+.container {
+  width: 100%;
   background-color: black;
 }
 
-circle {
-  /*fill: cyan;*/
+
+#wheel-svg {
+  min-height: 500px;
+  width: 100%;
 }
