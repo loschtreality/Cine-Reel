@@ -7,6 +7,7 @@ let svg;
 
 let origin = {
   cx: 250,
+  cy: 450,
   r: 40
 };
 
@@ -16,7 +17,7 @@ const makeCircle = (originDist, offSet, cirRadius) => {
 
   let cir_group = svg.select("g")
 
-debugger
+
   for (var angle = 0; angle < 360; angle += 30) {
     cir_group.append("circle")
     .attr("cx", newOriginX)
@@ -29,10 +30,10 @@ debugger
 
 
 const redraw = () => {
-
+console.log("redrawn");
   svg.selectAll("g").remove()
   svg.append("g")
-  debugger
+
   width = document.getElementById("wheel-svg").width.baseVal.value;
   height = document.getElementById("wheel-svg").height.baseVal.value;
 
@@ -44,23 +45,13 @@ const redraw = () => {
   cir3 = makeCircle(120, 30, 9);
   cir4 = makeCircle(150, 45, 11);
   cir5 = makeCircle(180, 60, 13);
-
-
-    window.setInterval((elapsed) => {
-      svg.selectAll("g").attr("transform", `rotate(${-30}, ${origin.cx}, ${origin.cy})`);
-    }, 1000);
-
-
-
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  console.log("dom content loaded");
   svg = d3.select("svg")
   .attr("width", 900)
   .attr("height", 500);
-
-  width = document.getElementById("wheel-svg").width.baseVal.value;
-debugger
   redraw()
 
 });
@@ -69,3 +60,9 @@ debugger
 window.addEventListener('resize', ev => {
     redraw()
   });
+
+  d3.interval((elapsed) => {
+    let roteVal = (-30 * Math.floor(elapsed/100)) % 360
+
+      svg.select("g").attr("transform", `rotate(${roteVal}, ${origin.cx}, ${origin.cy})`);
+  })
