@@ -36,17 +36,17 @@ const redraw = () => {
   svg.selectAll("g").remove()
   svg.append("g")
 
-  width = document.getElementById("wheel-svg").width.baseVal.value;
-  height = document.getElementById("wheel-svg").height.baseVal.value;
+  width = document.getElementById("reel-svg").width.baseVal.value;
+  height = document.getElementById("reel-svg").height.baseVal.value;
 
-  origin.cx = width/2
+  origin.cx = width/3
   origin.cy = height/2
 
-  cir1 = makeCircle(60, 0, 5);
-  cir2 = makeCircle(90, 15, 7);
-  cir3 = makeCircle(120, 30, 9);
-  cir4 = makeCircle(150, 45, 11);
-  cir5 = makeCircle(180, 60, 13);
+  cir1 = makeCircle(90, 0, 5);
+  cir2 = makeCircle(120, 15, 7);
+  cir3 = makeCircle(150, 30, 9);
+  cir4 = makeCircle(180, 45, 11);
+  cir5 = makeCircle(210, 60, 13);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -91,5 +91,10 @@ const resetValues = () => {
 
   document.getElementById('deg-disp').innerHTML = 25
   document.getElementById('freq-disp').innerHTML = 30
+
+}
+
+
+const applyTheme = (themePrimary, themeSecondary) => {
 
 }
