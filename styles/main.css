@@ -10,3 +10,16 @@ body {
   display: flex;
   justify-content: center;
 }
+
+
+.tail {
+  fill: red;
+}
+
+.normal {
+  fill: grey;
+}
+
+#user-controls {
+  margin-top: 20px;
+}

@@ -2,6 +2,8 @@ let height;
 let width;
 let cir1, cir2, cir3, cir4, cir5;
 
+let roteDeg = -25, frequency = 120;
+
 let svg;
 
 
@@ -24,13 +26,13 @@ const makeCircle = (originDist, offSet, cirRadius) => {
     .attr("cy", newOriginY)
     .attr("r", cirRadius)
     .attr("transform",`rotate(${angle}, ${origin.cx}, ${origin.cy})`)
-    .style("fill", (angle === 0 ? "red" : "grey") );
+    .classed((angle === 0 ? "tail" : "normal"), true);
   }
 }
 
 
 const redraw = () => {
-console.log("redrawn");
+
   svg.selectAll("g").remove()
   svg.append("g")
 
@@ -48,21 +50,46 @@ console.log("redrawn");
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  console.log("dom content loaded");
   svg = d3.select("svg")
   .attr("width", 900)
   .attr("height", 500);
+
   redraw()
 
+  let degControl = document.getElementById('deg-control')
+  let freqControl = document.getElementById('freq-control')
+
+  document.getElementById('deg-disp').innerHTML = degControl.value
+  document.getElementById('freq-disp').innerHTML = freqControl.value
 });
 
-
 window.addEventListener('resize', ev => {
-    redraw()
-  });
+  redraw()
+});
 
-  d3.interval((elapsed) => {
-    let roteVal = (-30 * Math.floor(elapsed/100)) % 360
+d3.interval((elapsed) => {
+  let roteVal = (roteDeg * Math.floor(elapsed/frequency)) % 360
+  svg.select("g").attr("transform", `rotate(${roteVal}, ${origin.cx}, ${origin.cy})`);
+})
 
-      svg.select("g").attr("transform", `rotate(${roteVal}, ${origin.cx}, ${origin.cy})`);
-  })
+
+const changeRoteDeg = (val) => {
+  roteDeg = -1 * val
+  document.getElementById('deg-disp').innerHTML = val
+}
+
+const changeFrequency = (val) => {
+  frequency = 3600 / val
+  document.getElementById('freq-disp').innerHTML = val
+}
+
+const resetValues = () => {
+  roteDeg = -25
+  frequency = 120
+  document.getElementById('deg-control').value = 25
+  document.getElementById('freq-control').value = 30
+
+  document.getElementById('deg-disp').innerHTML = 25
+  document.getElementById('freq-disp').innerHTML = 30
+
+}

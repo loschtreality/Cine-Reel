@@ -9,9 +9,9 @@ Michael Bach's color wheel illusion shows us how our eyes can deceive us when lo
 
 With this interactive color wagon wheel, users will be able to:
 
-- [ ] Change the frequency and degrees of rotation of the wheel
-- [ ] Choose from preset demo initial states
-- [ ] Reset the wheel to its original state
+- [x] Change the frequency and degrees of rotation of the wheel
+- [x] Choose from preset demo initial states
+- [x] Reset the wheel to its original state
 - [ ] Toggle between color schemes for different visibility
 
 
@@ -19,8 +19,8 @@ With this interactive color wagon wheel, users will be able to:
 
 This project will be created with:
 
-- D3.js library for the visualizatons and functionality of the wheel
-- SCSS for color schemes and the ability to switch between schemes
+- D3.js library for the visualizations and functionality of the wheel
+- CSS for color schemes and D3 selectors to give buttons the ability to switch between schemes
 
 
 ## Wireframe

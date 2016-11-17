@@ -10,6 +10,25 @@
   <body>
     <div class="container">
       <svg id="wheel-svg"></svg>
+
+
+    </div>
+    <div id="user-controls">
+      <label>Degrees:
+        <input id="deg-control" type="range" step="1" min="0" max="60" value="25" oninput="changeRoteDeg(this.value)"/>
+        <span id="deg-disp"></span>
+      </label>
+
+      <label>Frequency:
+        <input id="freq-control" type="range" step="1" min="1" max="60" value="30" oninput="changeFrequency(this.value)"/>
+        <span id="freq-disp"></span>
+      </label>
+      <button type="button" onclick="resetValues()">Reset</button>
+    </div>
+    <div id="color-controls">
+      <button type="button" name="button">Light</button>
+      <button type="button" name="button">Standard</button>
+      <button type="button" name="button">Neon-Dark</button>
     </div>
   </body>
 
