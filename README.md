@@ -10,14 +10,14 @@ Michael Bach's color wheel illusion shows us how our eyes can deceive us when lo
 
 ## Features and Implementation
 
-The Reel has an initial state of rotating at 25 degrees with a freqency of 9 hz
+Below is a display of the Reel. The Reel has an initial state of rotating at 25 degrees with a frequency of 9 hz:
 
-![Reel](docs/wireframes/reel.png)
+![Reel](docs/screenshots/reel.png)
 
 
 These are the controls which handle the degrees of rotation and frequency of the reel:
 
-![Controls](docs/wireframes/controls.png)
+![Controls](docs/screenshots/controls.png)
 
 Users can change the frequency and degrees using the sliders and change the color scheme of the wheel with the buttons
 
@@ -48,6 +48,27 @@ const makeCircle = (originDist, offSet, cirRadius) => {
     .classed((angle === 0 ? "tail" : "normal"), true);
   }
 }
+```
+
+The Reel rotates based on the `d3.interval` function which has similar functionality to `window.setInterval`, however a callback with an argument can be utilized to find elapsed time from invocation:
+
+```js
+d3.interval((elapsed) => {
+  let roteVal = (roteDeg * Math.floor(elapsed/(1000/frequency))) % 360;
+  svg.select("g").attr("transform", `rotate(${roteVal}, ${origin.cx}, ${origin.cy})`);
+})
+
+
+const changeRoteDeg = (val) => {
+  roteDeg = -1 * val;
+  document.getElementById('deg-disp').innerHTML = val;
+}
+
+const changeFrequency = (val) => {
+  frequency = val;
+  document.getElementById('freq-disp').innerHTML = `${val} hz`;
+}
+
 ```
 
 
