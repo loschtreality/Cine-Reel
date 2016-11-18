@@ -2,7 +2,7 @@ let height;
 let width;
 let cir1, cir2, cir3, cir4, cir5;
 
-let roteDeg = -25, frequency = 120;
+let roteDeg = -25, frequency = 9;
 
 let svg;
 
@@ -79,7 +79,7 @@ window.addEventListener('resize', ev => {
 });
 
 d3.interval((elapsed) => {
-  let roteVal = (roteDeg * Math.floor(elapsed/frequency)) % 360;
+  let roteVal = (roteDeg * Math.floor(elapsed/(1000/frequency))) % 360;
   svg.select("g").attr("transform", `rotate(${roteVal}, ${origin.cx}, ${origin.cy})`);
 })
 
@@ -90,18 +90,18 @@ const changeRoteDeg = (val) => {
 }
 
 const changeFrequency = (val) => {
-  frequency = 3600 / val;
-  document.getElementById('freq-disp').innerHTML = val;
+  frequency = val;
+  document.getElementById('freq-disp').innerHTML = `${val} hz`;
 }
 
 const resetValues = () => {
   roteDeg = -25;
-  frequency = 120;
+  frequency = 9;
   document.getElementById('deg-control').value = 25;
-  document.getElementById('freq-control').value = 30;
+  document.getElementById('freq-control').value = 9;
 
   document.getElementById('deg-disp').innerHTML = 25;
-  document.getElementById('freq-disp').innerHTML = 30;
+  document.getElementById('freq-disp').innerHTML = `${9} hz`;
 
 }
 
@@ -114,11 +114,8 @@ const applyTheme = (circlePrimary, circleSecondary, rainbow) => {
   if (rainbow) {
     cir_group.forEach((group) => {
       Array.from(group.childNodes).forEach((cir, idx) => {
-        let random = Math.floor(Math.random() * (7 - 1) + 1)
-        console.log(random, "random");
-        console.log(rainbowColors[random], "random color");
-
-        cir.style.fill = rainbowColors[random]
+        let random = Math.floor(Math.random() * (7 - 1) + 1);
+        cir.style.fill = rainbowColors[random];
       })
     })
   } else {
@@ -154,7 +151,7 @@ window.addEventListener('load', () => {
 
       neonButton.addEventListener('click', ev => {
         ev.preventDefault()
-        applyTheme("#00FF00","#3D77FE",false)
+        applyTheme("#3D77FE","#00FF00",false)
       });
 
       rainbowButton.addEventListener('click', ev => {
